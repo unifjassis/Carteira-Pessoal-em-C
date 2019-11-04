@@ -1,0 +1,30 @@
+# Project: Project1
+# Makefile created by Dev-C++ 5.0.0.4
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = 
+OBJ      = main.o $(RES)
+LINKOBJ  = main.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/lib" -L"C:/Program Files (x86)/Dev-Cpp/lib/gcc" -static-libstdc++ -static-libgcc -L"C:/Users/unifcfaria/Downloads/iup-3.27_Win32_dllw6_lib" -liup -lgdi32 -lcomdlg32 -lcomctl32 -luuid -loleaut32 -lole32  
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/include"  -I"C:/Users/unifcfaria/Downloads/iup-3.27_Win32_dllw6_lib/include" 
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/include"  -I"C:/Users/unifcfaria/Downloads/iup-3.27_Win32_dllw6_lib/include" 
+BIN      = Project1.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS   = $(INCS)  
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Project1.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "Project1.exe" $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
