@@ -177,15 +177,15 @@ void imprimeReceita(int i, int larg, struct Receita r){
 
 	if(r.data.dia < 10){                                //
         printf("%c Data: 0%d/", 186, r.data.dia);
-	}
+	}                                                   //  //
 	
-	else if(r.data.dia >= 10){                          //
+	else if(r.data.dia >= 10){                          //  //  //
 		printf("%c Data: %d/", 186, r.data.dia);
-	}                                                   //  VERIFICACAO DA DATA QUE SAIA BUGADA
+	}                                                   //  //	//	//	VERIFICACAO DA DATA QUE SAIA BUGADA
 	
-	if(r.data.mes < 10){                                //
+	if(r.data.mes < 10){                                //  //  //
         printf("0%d/", r.data.mes);
-	}
+	}                                                   //  //
 	
 	else if(r.data.mes >= 10){                          //
         printf("%d/", r.data.mes);
@@ -227,7 +227,7 @@ void excluiReceita(struct Livro* l, int pos){
 }
 
 void relatorioCategorico(int i, int larg, struct Livro l){
-	puts("Qual categoria deseja buscar:");
+	puts("\nQual categoria deseja buscar:");
 	printaCategoria();
 	int categoria;
 	scanf("%d", &categoria);	
@@ -248,7 +248,7 @@ void relatorioCategorico(int i, int larg, struct Livro l){
 }
 
 void relatorioAnual(int i, int larg, struct Livro l){
-	puts("Qual ano deseja buscar:");
+	puts("\nQual ano deseja buscar:");
 	int ano;
 	scanf("%d", &ano);
 	
@@ -256,7 +256,7 @@ void relatorioAnual(int i, int larg, struct Livro l){
     	
     	if(l.receitas[i].data.ano == ano){
     		imprimeReceita(i, larg, l.receitas[i]);	
-    		puts("------------------------\n");
+    		//puts("------------------------\n");
 		}
     }
 	

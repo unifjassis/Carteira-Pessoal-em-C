@@ -50,36 +50,43 @@ void main(){
 
 		switch(entrada){
 			case 1:
+                system("cls");
 				cadastraReceita(&l);
 				break;
 				
 			case 2:
+                system("cls");
 				a = encontraReceita(l);
 				imprimeReceita(i, larg, a);
 				recadastraReceita(&l, a.i);
 				break;
 				
 			case 3:
+                system("cls");
 			    a = encontraReceita(l);
 			    imprimeReceita(i, larg, a);
 			    excluiReceita(&l, a.i);
 			    break;
 				
 			case 4:
+                system("cls");
 				puts("\nTodas as Receitas:\n");
 				imprimeLivro(i, larg, l);
 				break;
 				
 			case 5:
+                system("cls");
 				a = encontraReceita(l);
 		        imprimeReceita(i, larg, a);
 				break;
 
 			case 6:
+                system("cls");
 				relatorioCategorico(i, larg, l);
 				break;
 				
 			case 7:
+                system("cls");
 				relatorioAnual(i, larg, l);
 				break;
 				
