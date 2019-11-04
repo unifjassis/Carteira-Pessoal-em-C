@@ -28,7 +28,7 @@ void main(){
 		puts("1 - Cadastrar receita.");
 		puts("2 - Alterar receita.");
 		puts("3 - Excluir receita.");
-		puts("4 - Imprime Livro.");                 //  MENU ANTIGO
+		puts("4 - Imprime Livro.");                 //  MENU ANTIGO SEM INTERFACE NO TERMINAL
 		puts("5 - Imprime Receita.");
 		puts("6 - Relatorio por categoria.");
 		puts("7 - Relatorio Anual.");

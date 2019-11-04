@@ -158,7 +158,7 @@ struct Receita encontraReceita(struct Livro l){
 }
 
 void imprimeReceita(int i, int larg, struct Receita r){
-	char b[30];
+	char b[30];     //  USADO PARA TRANSFORMAR CATEGORIA NUMERICA EM PALAVRA
 	char buff[10];
 	categoria(r.categoria,b);
 
@@ -169,16 +169,39 @@ void imprimeReceita(int i, int larg, struct Receita r){
 	linhaBranco(i, larg);
 
     printf("%c Nome: %s", 186, r.cliente);
-    espaco(larg - (strlen(r.cliente) - strlen("Nome: ")) - 13, i);  //  NAO SEI O POR QUE DESSE 13, TENTEI ENTENDER
+    espaco(larg - (strlen(r.cliente) + strlen(" Nome: ")), i);
+    
     printf("%c Valor: %.2f", 186, r.valor);
-    sprintf(buff, "%i", r.valor);
-	espaco(larg - (strlen(buff) - strlen("Valor: ")) - 23, i);
-    printf("%c Data: %d/%d/%d", 186, r.data.dia, r.data.mes, r.data.ano);
-    espaco(larg - 15, i);
+    sprintf(buff, "%.2f", r.valor);
+	espaco(larg - (strlen(buff) + strlen(" Valor: ")), i);
+
+	if(r.data.dia < 10){                                //
+        printf("%c Data: 0%d/", 186, r.data.dia);
+	}
+	
+	else if(r.data.dia >= 10){                          //
+		printf("%c Data: %d/", 186, r.data.dia);
+	}                                                   //  VERIFICACAO DA DATA QUE SAIA BUGADA
+	
+	if(r.data.mes < 10){                                //
+        printf("0%d/", r.data.mes);
+	}
+	
+	else if(r.data.mes >= 10){                          //
+        printf("%d/", r.data.mes);
+	}
+	
+	printf("%d", r.data.ano);
+
+	int tam = 8;
+    sprintf(buff, "%d", tam);
+    espaco(larg - (strlen(buff) + 2*strlen(" Data: ") + strlen("//")), i);      //  DEMOREI MUITO PRA ACHAR A LOGICA DISSO
+    
 	printf("%c Categoria: %s", 186, b);
-	espaco(larg - 2*(strlen(b) - strlen(" Categoria: ")), i);
+	espaco(larg - (strlen(b) + strlen(" Categoria: ")), i);
+	
 	printf("%c Descricao: %s", 186,  r.descricao);
-	espaco(larg - 14, i);
+	espaco(larg - (strlen(r.descricao) + strlen(" Descricao: ")), i);
 	quadrado2(i, larg);
 
 	//categoria(r.categoria);           //ANTES ESTAVA ASSIM, APENAS NUMERO
